@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal">
+
+           <RelativeLayout
+               android:id="@+id/coundown_RelativeLayout"
+               android:gravity="center"
+                android:layout_width="400dp"
+                android:layout_height="400dp" >
+            <ImageView
+                android:id="@+id/coundown_btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start" />
+            <RelativeLayout
+                android:id="@+id/coundown_progressload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/coundown_RelativeLayout"
+                android:layout_marginTop="40dp" >
+
+                <TextView
+                    android:id="@+id/coundown_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:id="@+id/coundown_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    android:textSize="50sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+            
+              <SlidingDrawer
+        android:id="@+id/slidingdrawer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="vertical" >
+
+        <!-- 设置handle，就是用一个图片按钮来处理滑动抽屉的 -->
+        <RelativeLayout
+            android:id="@id/handle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/orange" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+	            android:layout_centerHorizontal="true"
+	            android:layout_centerVertical="true"
+                android:src="@drawable/ic_time_setting" />
+        </RelativeLayout>
+        <!-- 设置内容，一个布局View，其中包含一个文本框，当我们拖动的时候就会看到 -->
+
+       <RelativeLayout
+            android:id="@id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+           <RelativeLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:background="@drawable/time_setting_bg" >
+
+               <LinearLayout
+                   android:id="@+id/numberpicker_layout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_centerHorizontal="true"
+                   android:layout_centerVertical="true" >
+
+                   <net.simonvt.numberpicker.NumberPicker
+                       android:id="@+id/numberPicker_m"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" >
+                   </net.simonvt.numberpicker.NumberPicker>
+
+                   <net.simonvt.numberpicker.NumberPicker
+                       android:id="@+id/numberPicker_s"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" >
+                   </net.simonvt.numberpicker.NumberPicker>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentLeft="true"
+                   android:layout_below="@+id/numberpicker_layout"
+                   android:layout_marginTop="50dp"
+                   android:orientation="horizontal" >
+
+                   <Button
+                       android:id="@+id/coundown_set_time_cancel"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:background="@color/transparent"
+                       android:gravity="center"
+                       android:textSize="25sp"
+                       android:textColor="@color/darker_gray"
+                       android:text="@string/coundown_set_time_cancel" />
+
+                   <Button
+                       android:id="@+id/coundown_set_time_ok"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:background="@color/transparent"
+                       android:gravity="center"
+                       android:textSize="25sp"
+                       android:textColor="@color/orange"
+                       android:text="@string/coundown_set_time_ok" />
+               </LinearLayout>
+           </RelativeLayout>
+           
+        </RelativeLayout>
+
+    </SlidingDrawer>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
