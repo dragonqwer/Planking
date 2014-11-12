@@ -14,8 +14,6 @@ import com.dragon.planking.widget.ProfileFragment;
 import com.dragon.planking.widget.ResideMenu;
 import com.dragon.planking.widget.ResideMenuItem;
 import com.dragon.planking.widget.SettingsFragment;
-import com.nineoldandroids.view.ViewHelper;
-import com.nineoldandroids.view.ViewPropertyAnimator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -27,7 +25,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
