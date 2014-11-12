@@ -31,7 +31,7 @@ import net.simonvt.numberpicker.NumberPicker;
 import com.dragon.planking.MenuActivity;
 import com.dragon.planking.R;
 import com.dragon.planking.model.Data;
-import com.dragon.planking.sql.DBManager;
+
 
 
 public class countdownFragment extends Fragment implements OnClickListener
