@@ -26,14 +26,6 @@ public class HomeFragment extends Fragment
         initViews();
         return parentView;
     }
-    
-    @Override
-    public void onStart()
-    {
-        // TODO Auto-generated method stub
-        super.onStart();
-        
-    }
 
     private void initViews()
     {

@@ -14,6 +14,7 @@ import com.dragon.planking.widget.ProfileFragment;
 import com.dragon.planking.widget.ResideMenu;
 import com.dragon.planking.widget.ResideMenuItem;
 import com.dragon.planking.widget.SettingsFragment;
+import com.umeng.update.UmengUpdateAgent;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 
 public class MenuActivity extends FragmentActivity implements View.OnClickListener
 {
+	
     private static String TAG = "MenuActivity";
     public static String DataSave = "DataSave";
     private ResideMenu resideMenu;
@@ -73,6 +75,9 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             Log.v(TAG, "daydata=i=getDatalist().size() "+daydatalist.get(i).getDatalist().size());
         }
         changeFragment(new HomeFragment(),R.layout.home);
+        
+        UmengUpdateAgent.update(this);  
+        UmengUpdateAgent.setUpdateAutoPopup(true); 
     }
     
     @Override

@@ -20,6 +20,28 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        
+        <activity android:name="com.umeng.fb.ConversationActivity"
+         android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity"
+         android:theme="@android:style/Theme.NoTitleBar"/>
+        
+        <service
+	    android:name="com.umeng.update.net.DownloadingService"
+	    android:process=":DownloadingService" >
+		</service>
+		<activity 
+		    android:name="com.umeng.update.UpdateDialogActivity"
+		    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		</activity>		
+        <meta-data android:value="54841e14fd98c5369f000081" android:name="UMENG_APPKEY"></meta-data>
+        <meta-data android:value="dragon" android:name="UMENG_CHANNEL"/>
     </application>
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+   
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
