@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 
-public class HomeFragment extends Fragment
+public class TimerFragment extends Fragment
 {
 
     private View parentView;
@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        parentView = inflater.inflate(R.layout.home, container, false);
+        parentView = inflater.inflate(R.layout.timer, container, false);
         initViews();
         return parentView;
     }
@@ -31,18 +31,18 @@ public class HomeFragment extends Fragment
         MenuActivity parentActivity = (MenuActivity) getActivity();
         resideMenu = parentActivity.getResideMenu();
 
-        parentView.findViewById(R.id.btn_open_menu).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
-
-        // add gesture operation's ignored views
-        FrameLayout ignored_view = (FrameLayout) parentView.findViewById(R.id.ignored_view);
-        resideMenu.addIgnoredView(ignored_view);
+//        parentView.findViewById(R.id.btn_open_menu).setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+//            }
+//        });
+//
+//        // add gesture operation's ignored views
+//        FrameLayout ignored_view = (FrameLayout) parentView.findViewById(R.id.ignored_view);
+//        resideMenu.addIgnoredView(ignored_view);
     }
 
 }

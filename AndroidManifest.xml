@@ -22,9 +22,9 @@
         </activity>
         
         <activity android:name="com.umeng.fb.ConversationActivity"
-         android:theme="@android:style/Theme.NoTitleBar"/>
+         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:name="com.umeng.fb.ContactActivity"
-         android:theme="@android:style/Theme.NoTitleBar"/>
+         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         
         <service
 	    android:name="com.umeng.update.net.DownloadingService"

@@ -8,9 +8,10 @@ import com.dragon.planking.R;
 import com.dragon.planking.model.Data;
 import com.dragon.planking.model.DayData;
 import com.dragon.planking.sql.DBManager;
-import com.dragon.planking.widget.countdownFragment;
-import com.dragon.planking.widget.HomeFragment;
-import com.dragon.planking.widget.ProfileFragment;
+import com.dragon.planking.widget.CountdownFragment;
+import com.dragon.planking.widget.AboutFragment;
+import com.dragon.planking.widget.TimerFragment;
+import com.dragon.planking.widget.DataFragment;
 import com.dragon.planking.widget.ResideMenu;
 import com.dragon.planking.widget.ResideMenuItem;
 import com.dragon.planking.widget.SettingsFragment;
@@ -18,6 +19,7 @@ import com.umeng.update.UmengUpdateAgent;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -35,14 +37,16 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
 	
     private static String TAG = "MenuActivity";
     public static String DataSave = "DataSave";
+    private  Resources res;
     private ResideMenu resideMenu;
     private MenuActivity mContext;
     private TextView title;
-    private ResideMenuItem itemHome;
-    private ResideMenuItem itemProfile;
+
     private ResideMenuItem itemTimer;
-    private ResideMenuItem itemcountdown;
+    private ResideMenuItem itemCountdown;
+    private ResideMenuItem itemData;
     private ResideMenuItem itemSettings;
+    private ResideMenuItem itemAbout;
     
     private boolean isexit = false;
     private boolean hastask = false;
@@ -61,7 +65,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-         
+        res = getResources();
         mContext = this;
         dm =new DBManager(this);
         initMenu();
@@ -74,7 +78,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             Log.v(TAG, "daydata=i= "+daydatalist.get(i).toString());
             Log.v(TAG, "daydata=i=getDatalist().size() "+daydatalist.get(i).getDatalist().size());
         }
-        changeFragment(new HomeFragment(),R.layout.home);
+        changeFragment(new TimerFragment(),R.layout.timer);
         
         UmengUpdateAgent.update(this);  
         UmengUpdateAgent.setUpdateAutoPopup(true); 
@@ -128,30 +132,30 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
 
         // attach to current activity;
         resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.menu_background);
+        resideMenu.setBackground(R.color.blue);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
         // valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
         resideMenu.setScaleValue(0.7f);
 
         // create menu items;
-        itemHome = new ResideMenuItem(this, R.drawable.icon_home, "Home");
-        itemProfile = new ResideMenuItem(this, R.drawable.icon_profile, "Profile");
-        itemTimer = new ResideMenuItem(this, R.drawable.icon_calendar, "Timer");
-        itemcountdown = new ResideMenuItem(this, R.drawable.icon_calendar, "countdown");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
+        itemTimer = new ResideMenuItem(this, R.drawable.icon_timer,res.getString(R.string.title_timer) );
+        itemCountdown = new ResideMenuItem(this, R.drawable.icon_countdown, res.getString(R.string.title_countdown));
+        itemData = new ResideMenuItem(this, R.drawable.icon_data, res.getString(R.string.title_data));
+        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, res.getString(R.string.title_settings));
+        itemAbout= new ResideMenuItem(this, R.drawable.icon_about, res.getString(R.string.title_about));
 
-        itemHome.setOnClickListener(this);
-        itemProfile.setOnClickListener(this);
         itemTimer.setOnClickListener(this);
-        itemcountdown.setOnClickListener(this);
+        itemCountdown.setOnClickListener(this);
+        itemData.setOnClickListener(this);
         itemSettings.setOnClickListener(this);
+        itemAbout.setOnClickListener(this);
 
-        resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemTimer, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemcountdown, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemCountdown, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemData, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemAbout, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
        
@@ -187,25 +191,25 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View view)
     {
 
-        if (view == itemHome)
+        if (view == itemTimer)
         {
-            changeFragment(new HomeFragment(),R.layout.home);
+            changeFragment(new TimerFragment(),R.layout.timer);
         }
-        else if (view == itemProfile)
+        else if (view == itemCountdown)
         {
-            changeFragment(new ProfileFragment(),R.layout.profile);
+            changeFragment(new CountdownFragment(),R.layout.countdown);
         }
-        else if (view == itemTimer)
+        else if (view == itemData)
         {
-            changeFragment(new countdownFragment(),R.layout.countdown);
-        }
-        else if (view == itemcountdown)
-        {
-            changeFragment(new countdownFragment(),R.layout.countdown);
+            changeFragment(new DataFragment(),R.layout.data);
         }
         else if (view == itemSettings)
         {
             changeFragment(new SettingsFragment(),R.layout.settings);
+        }
+        else if (view == itemAbout)
+        {
+            changeFragment(new AboutFragment(),R.layout.about);
         }
 
         resideMenu.closeMenu();
@@ -230,20 +234,20 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     {
         switch (id)
         {
-            case R.layout.home:
-                title.setText(getResources().getString(R.string.title_home));
-                break;
-            case R.layout.profile:
-                title.setText(getResources().getString(R.string.title_profile));
-                break;
             case R.layout.timer:
-                title.setText(getResources().getString(R.string.title_timer));
+                title.setText(res.getString(R.string.title_timer));
                 break;
             case R.layout.countdown:
-                title.setText(getResources().getString(R.string.title_countdown));
+                title.setText(res.getString(R.string.title_countdown));
+                break;
+            case R.layout.data:
+                title.setText(res.getString(R.string.title_data));
                 break;
             case R.layout.settings:
-                title.setText(getResources().getString(R.string.title_settings));
+                title.setText(res.getString(R.string.title_settings));
+                break;
+            case R.layout.about:
+                title.setText(res.getString(R.string.title_about));
                 break;
 
             default:

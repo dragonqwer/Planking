@@ -34,7 +34,7 @@ import com.dragon.planking.model.Data;
 
 
 
-public class countdownFragment extends Fragment implements OnClickListener
+public class CountdownFragment extends Fragment implements OnClickListener
 {
     private static String TAG ="CalendarFragment";
     private View parentView;

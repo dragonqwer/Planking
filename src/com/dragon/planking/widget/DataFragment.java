@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
-public class ProfileFragment extends Fragment
+public class DataFragment extends Fragment
 {
 
     private static String TAG ="ProfileFragment";
@@ -43,7 +43,7 @@ public class ProfileFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        parentView = inflater.inflate(R.layout.profile, container, false);
+        parentView = inflater.inflate(R.layout.data, container, false);
         initViews();
         return parentView;
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">肥趴</string>
+    
+    <string name="title_timer">计时器</string>
+    <string name="title_countdown">定时器</string>
+    <string name="title_data">成绩单</string>
+    <string name="title_settings">设置</string>
+    <string name="title_about">关于</string>
+    
+    <string name="coundown_set_time_cancel">Cancel</string>
+    <string name="coundown_set_time_ok">OK</string>
+  
+</resources>
