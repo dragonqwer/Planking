@@ -3,78 +3,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <LinearLayout
+    
+    <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        >
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    		android:layout_centerVertical = "true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <EditText
-                android:id="@+id/countdownTimer_edit_min"
+           <RelativeLayout
+               android:id="@+id/timer_RelativeLayout"
+               android:gravity="center"
+                android:layout_width="400dp"
+                android:layout_height="400dp" >
+            <ImageView
+                android:id="@+id/timer_btn_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:digits="0123456789"
-                android:ems="1"
-                android:gravity="center"
-                android:hint="00"
-                android:inputType="time"
-                android:maxLength="2" />
-
-            <TextView
+                android:background="@drawable/btn_start_hover" />
+            <RelativeLayout
+                android:id="@+id/timer_progressload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=":" />
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/timer_RelativeLayout"
+                android:layout_marginTop="20dp" >
 
-            <EditText
-                android:id="@+id/countdownTimer_edit_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:ems="1"
-                android:gravity="center"
-                android:hint="00"
-                android:inputType="time" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/timer_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    android:textSize="50sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="50sp" />
 
-            <Button
-                android:id="@+id/but_start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="开始" />
-
-            <Button
-                android:id="@+id/but_pause"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="暂停" />
-
-            <Button
-                android:id="@+id/but_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="取消" />
-
-            <Button
-                android:id="@+id/but_reset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="重置" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/timer_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    android:textSize="50sp" />
+            </LinearLayout>
+        </RelativeLayout>
+        
+        
+    </RelativeLayout>
 
 </FrameLayout>

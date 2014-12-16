@@ -36,7 +36,7 @@ import com.dragon.planking.model.Data;
 
 public class CountdownFragment extends Fragment implements OnClickListener
 {
-    private static String TAG ="CalendarFragment";
+    private static String TAG ="CountdownFragment";
     private View parentView;
 
     private ImageView coundown_btn_start;
@@ -171,85 +171,6 @@ public class CountdownFragment extends Fragment implements OnClickListener
         numberPicker_s.setFocusableInTouchMode(true);
         
     }
-    
-    
-
-
-
-    class CountdownTimer extends AdvancedCountdownTimer {
-
-        public CountdownTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-        
-        @Override
-        public void onStart()
-        {
-            // TODO Auto-generated method stub
-            Log.v(TAG, "onStart()");
-            
-//            coundown_btn_start.setBackgroundResource(R.drawable.btn_stop);
-        }
-        
-        
-
-        public void onFinish() {
-//            countdownTimer_edit_min.setEnabled(true);
-//            countdownTimer_edit_s.setEnabled(true);
-            numberPicker_m.invalidate();
-            numberPicker_s.invalidate();
-            long myminute = ((count / 1000)) / 60;
-            long mysecond = count / 1000 - myminute * 60;
-            
-            referhtime(myminute, mysecond);
-            isbtn_stop = false;
-            coundown_btn_start.startAnimation(out);
-//            coundown_btn_start.setBackgroundResource(R.drawable.btn_start_hover);
-            countdowntimer = null;
-            Time t=new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
-            t.setToNow(); // 取得系统时间。
-            Data data =new Data();
-//            data.setDate_y(t.year);
-//            data.setDate_mo(t.month+1);
-//            data.setDate_d(t.monthDay);
-//            data.setDate_h(t.hour);
-//            data.setDate_m(t.minute);
-//            data.setDate_s(t.second);
-//            data.setResult(count/1000);
-//            Log.v(TAG, "add data=="+data.toString());
-//            parentActivity.dm.addData(data);
-//            addMaxInSP(data);   
-            for(int i=0;i<10;i++)
-            {
-                for(int j=0;j<5;j++)
-                {
-                    data.setDate_y(t.year);
-                    data.setDate_mo(t.month+1);
-                    data.setDate_d(t.monthDay+i);
-                    data.setDate_h(t.hour);
-                    data.setDate_m(t.minute);
-//                    data.setDate_s(t.second+j);
-                    data.setDate_s(t.second+ i);
-                    data.setResult(count/1000 + j+i);
-//                    data.setResult(count/1000 + i);
-                    Log.v(TAG, "add data=="+data.toString());
-                    parentActivity.dm.addData(data); 
-                    addMaxInSP(data);
-                }
-            }
-        }
-
-        // 倒计时的回调
-        public void onTick(long millisUntilFinished, int percent) {
-
-            long myminute = ((millisUntilFinished / 1000)) / 60;
-            long mysecond = millisUntilFinished / 1000 - myminute * 60;
-            
-            referhtime(myminute,mysecond);
-        }
-    }
-
-
 
     @Override
     public void onClick(View arg0)
@@ -342,5 +263,76 @@ public class CountdownFragment extends Fragment implements OnClickListener
         coundown_sec.setText(strsecond);
     }
     
-    
+    class CountdownTimer extends AdvancedCountdownTimer {
+
+        public CountdownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+        
+        @Override
+        public void onStart()
+        {
+            // TODO Auto-generated method stub
+            Log.v(TAG, "onStart()");
+            
+//            coundown_btn_start.setBackgroundResource(R.drawable.btn_stop);
+        }
+        
+        
+
+        public void onFinish() {
+//            countdownTimer_edit_min.setEnabled(true);
+//            countdownTimer_edit_s.setEnabled(true);
+            numberPicker_m.invalidate();
+            numberPicker_s.invalidate();
+            long myminute = ((count / 1000)) / 60;
+            long mysecond = count / 1000 - myminute * 60;
+            
+            referhtime(myminute, mysecond);
+            isbtn_stop = false;
+            coundown_btn_start.startAnimation(out);
+//            coundown_btn_start.setBackgroundResource(R.drawable.btn_start_hover);
+            countdowntimer = null;
+            Time t=new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
+            t.setToNow(); // 取得系统时间。
+            Data data =new Data();
+//            data.setDate_y(t.year);
+//            data.setDate_mo(t.month+1);
+//            data.setDate_d(t.monthDay);
+//            data.setDate_h(t.hour);
+//            data.setDate_m(t.minute);
+//            data.setDate_s(t.second);
+//            data.setResult(count/1000);
+//            Log.v(TAG, "add data=="+data.toString());
+//            parentActivity.dm.addData(data);
+//            addMaxInSP(data);   
+            for(int i=0;i<10;i++)
+            {
+                for(int j=0;j<5;j++)
+                {
+                    data.setDate_y(t.year);
+                    data.setDate_mo(t.month+1);
+                    data.setDate_d(t.monthDay+i);
+                    data.setDate_h(t.hour);
+                    data.setDate_m(t.minute);
+//                    data.setDate_s(t.second+j);
+                    data.setDate_s(t.second+ i);
+                    data.setResult(count/1000 + j+i);
+//                    data.setResult(count/1000 + i);
+                    Log.v(TAG, "add data=="+data.toString());
+                    parentActivity.dm.addData(data); 
+                    addMaxInSP(data);
+                }
+            }
+        }
+
+        // 倒计时的回调
+        public void onTick(long millisUntilFinished, int percent) {
+
+            long myminute = ((millisUntilFinished / 1000)) / 60;
+            long mysecond = millisUntilFinished / 1000 - myminute * 60;
+            
+            referhtime(myminute,mysecond);
+        }
+    }
 }

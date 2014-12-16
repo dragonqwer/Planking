@@ -10,9 +10,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+    		android:layout_centerVertical = "true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            
             android:gravity="center_horizontal">
 
            <RelativeLayout
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/coundown_RelativeLayout"
-                android:layout_marginTop="40dp" >
+                android:layout_marginTop="20dp" >
 
                 <TextView
                     android:id="@+id/coundown_min"
