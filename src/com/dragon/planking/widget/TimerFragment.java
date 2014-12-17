@@ -56,8 +56,33 @@ public class TimerFragment extends Fragment implements OnClickListener
     public void onStart()
     {
         // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onStart");
         super.onStart();
         initAnim();
+    }
+    
+    @Override
+    public void onPause()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onPause");
+        if(timer != null)
+        {
+            timer.pause();
+        }
+        super.onPause();
+    }
+    
+    @Override
+    public void onResume()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onResume");
+        if(timer != null)
+        {
+            timer.resume();
+        }
+        super.onResume();
     }
 
     private void initViews()
@@ -183,8 +208,6 @@ public class TimerFragment extends Fragment implements OnClickListener
         public void onStart()
         {
             // TODO Auto-generated method stub
-            Log.v(TAG, "onStart()");
-            
 //            coundown_btn_start.setBackgroundResource(R.drawable.btn_stop);
         }
 

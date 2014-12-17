@@ -5,6 +5,7 @@ import com.dragon.planking.MenuActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.FrameLayout;
 
 public class AboutFragment extends Fragment
 {
+    private static String TAG ="AboutFragment";
 
     private View parentView;
     private ResideMenu resideMenu;
@@ -24,6 +26,14 @@ public class AboutFragment extends Fragment
         parentView = inflater.inflate(R.layout.about, container, false);
         initViews();
         return parentView;
+    }
+    
+    @Override
+    public void onPause()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onPause");
+        super.onPause();
     }
 
     private void initViews()

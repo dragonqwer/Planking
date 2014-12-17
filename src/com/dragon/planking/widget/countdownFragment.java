@@ -76,6 +76,29 @@ public class CountdownFragment extends Fragment implements OnClickListener
         initAnim();
 
     }
+    @Override
+    public void onPause()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onPause");
+        if(countdowntimer != null)
+        {
+            countdowntimer.pause();
+        }
+        super.onPause();
+    }
+    
+    @Override
+    public void onResume()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onResume");
+        if(countdowntimer != null)
+        {
+            countdowntimer.resume();
+        }
+        super.onResume();
+    }
 
     private void initAnim()
     {

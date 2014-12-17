@@ -48,6 +48,14 @@ public class DataFragment extends Fragment
         return parentView;
     }
     
+    @Override
+    public void onPause()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onPause");
+        super.onPause();
+    }
+    
     
     private void initViews()
     {

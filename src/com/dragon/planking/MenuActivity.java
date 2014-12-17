@@ -50,6 +50,13 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     
     private boolean isexit = false;
     private boolean hastask = false;
+    
+    private TimerFragment mTimerFragment;
+    private CountdownFragment mCountdownFragment;
+    private DataFragment mDataFragment;
+    private SettingsFragment mSettingsFragment;
+    private AboutFragment mAboutFragment;
+    
 
     Timer texit = new Timer();
 
@@ -78,7 +85,8 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             Log.v(TAG, "daydata=i= "+daydatalist.get(i).toString());
             Log.v(TAG, "daydata=i=getDatalist().size() "+daydatalist.get(i).getDatalist().size());
         }
-        changeFragment(new TimerFragment(),R.layout.timer);
+        mTimerFragment = new TimerFragment();
+        changeFragment(mTimerFragment,R.layout.timer);
         
         UmengUpdateAgent.update(this);  
         UmengUpdateAgent.setUpdateAutoPopup(true); 
@@ -193,23 +201,33 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
 
         if (view == itemTimer)
         {
-            changeFragment(new TimerFragment(),R.layout.timer);
+            if(mTimerFragment ==null)
+            mTimerFragment =new TimerFragment();
+            changeFragment(mTimerFragment,R.layout.timer);
         }
         else if (view == itemCountdown)
         {
-            changeFragment(new CountdownFragment(),R.layout.countdown);
+            if(mCountdownFragment ==null)
+            mCountdownFragment = new CountdownFragment();
+            changeFragment(mCountdownFragment,R.layout.countdown);
         }
         else if (view == itemData)
         {
-            changeFragment(new DataFragment(),R.layout.data);
+            if(mDataFragment ==null)
+            mDataFragment = new DataFragment();
+            changeFragment(mDataFragment,R.layout.data);
         }
         else if (view == itemSettings)
         {
-            changeFragment(new SettingsFragment(),R.layout.settings);
+            if(mSettingsFragment ==null)
+            mSettingsFragment = new SettingsFragment();
+            changeFragment(mSettingsFragment,R.layout.settings);
         }
         else if (view == itemAbout)
         {
-            changeFragment(new AboutFragment(),R.layout.about);
+            if(mAboutFragment ==null)
+            mAboutFragment = new AboutFragment();
+            changeFragment(mAboutFragment,R.layout.about);
         }
 
         resideMenu.closeMenu();
@@ -221,12 +239,14 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         public void openMenu()
         {
             Toast.makeText(mContext, "Menu is opened!", Toast.LENGTH_SHORT).show();
+            Log.v(TAG, "Menu is opened!");
         }
 
         @Override
         public void closeMenu()
         {
             Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
+            Log.v(TAG, "Menu is closed!");
         }
     };
 

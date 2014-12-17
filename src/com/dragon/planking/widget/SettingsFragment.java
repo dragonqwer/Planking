@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 public class SettingsFragment extends Fragment
 {
-
+    private static String TAG ="SettingsFragment";
 	private View parentView;
 	private ResideMenu resideMenu;
 	
@@ -39,6 +39,14 @@ public class SettingsFragment extends Fragment
     	initViews();
     	
         return parentView;
+    }
+    
+    @Override
+    public void onPause()
+    {
+        // TODO Auto-generated method stub
+        Log.v(TAG, TAG+"====onPause");
+        super.onPause();
     }
     
     private void initfeedback()
