@@ -8,6 +8,7 @@ import com.dragon.planking.R;
 import com.dragon.planking.model.Data;
 import com.dragon.planking.model.DayData;
 import com.dragon.planking.sql.DBManager;
+import com.dragon.planking.widget.Abutton;
 import com.dragon.planking.widget.CountdownFragment;
 import com.dragon.planking.widget.AboutFragment;
 import com.dragon.planking.widget.TimerFragment;
@@ -50,6 +51,8 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     
     private boolean isexit = false;
     private boolean hastask = false;
+    
+    private Abutton mAbutton;
     
     private TimerFragment mTimerFragment;
     private CountdownFragment mCountdownFragment;
@@ -144,7 +147,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
         // valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
-        resideMenu.setScaleValue(0.7f);
+        resideMenu.setScaleValue(0.75f);
 
         // create menu items;
         itemTimer = new ResideMenuItem(this, R.drawable.icon_timer,res.getString(R.string.title_timer) );
@@ -171,11 +174,13 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
          
          title = (TextView) findViewById(R.id.title);
          
-        findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener()
+         mAbutton = (Abutton)findViewById(R.id.title_bar_left_menu);
+         mAbutton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
-            {
+            {   
+                Log.v(TAG, "Abutton onclick");
                 resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
             }
         });
@@ -240,6 +245,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         {
             Toast.makeText(mContext, "Menu is opened!", Toast.LENGTH_SHORT).show();
             Log.v(TAG, "Menu is opened!");
+            mAbutton.setActionId(Abutton.BLACK, Abutton.ROTATE_COUNTER_CLOCKWISE);
         }
 
         @Override
@@ -247,6 +253,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         {
             Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
             Log.v(TAG, "Menu is closed!");
+            mAbutton.setActionId(Abutton.DRAWER, Abutton.ROTATE_CLOCKWISE);
         }
     };
 

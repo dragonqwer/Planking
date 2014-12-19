@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		xmlns:ActionView="http://schemas.android.com/apk/res-auto"
               android:background="@android:color/white"
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -17,13 +18,16 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
-            <Button
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:background="@drawable/titlebar_menu_selector"
-                    android:id="@+id/title_bar_left_menu"
+            <com.dragon.planking.widget.Abutton
+				    android:id="@+id/title_bar_left_menu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+				    ActionView:animationDuration="180"
+				    ActionView:strokeSize="3dip"
+				    ActionView:av_action="drawer"
+				    ActionView:av_color="#000000"/>
 
             <TextView
                 	android:id="@+id/title"
@@ -38,10 +42,10 @@
 
         </FrameLayout>
 
-        <ImageView
+  <!--    <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:background="#ebebeb"/>
+                android:background="#ebebeb"/> -->   
 
     </LinearLayout>
 
