@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="orange">#f19149</color>	<!-- 橙色 -->
-    <color name="blue">#00BFFF</color>	<!-- 蓝色 -->
+    <color name="orange">#f19149</color>	<!--设置 橙色 -->
+    <color name="sign_orange">#ed6942</color>	<!--登录 橙色 -->
+    <color name="sign_textcolor">#7f7f7f</color>	<!--登录 字体颜色 -->
+    <color name="blue">#7ecef4</color>	<!-- 蓝色 -->
     <color name="transparent">#00000000</color>
 
     <color name="darker_gray">#aaa</color>
+    <color name="vifrification">#00000000</color>
+    
+    
     
 </resources>

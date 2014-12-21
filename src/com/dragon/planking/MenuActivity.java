@@ -11,6 +11,7 @@ import com.dragon.planking.sql.DBManager;
 import com.dragon.planking.widget.Abutton;
 import com.dragon.planking.widget.CountdownFragment;
 import com.dragon.planking.widget.AboutFragment;
+import com.dragon.planking.widget.MyDialog;
 import com.dragon.planking.widget.TimerFragment;
 import com.dragon.planking.widget.DataFragment;
 import com.dragon.planking.widget.ResideMenu;
@@ -147,7 +148,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
         // valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
-        resideMenu.setScaleValue(0.75f);
+        resideMenu.setScaleValue(0.72f);
 
         // create menu items;
         itemTimer = new ResideMenuItem(this, R.drawable.icon_timer,res.getString(R.string.title_timer) );
@@ -182,6 +183,10 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             {   
                 Log.v(TAG, "Abutton onclick");
                 resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+                
+                /****test dialog***/
+                MyDialog test =new MyDialog(MenuActivity.this);
+                test.showDialog(R.layout.signdialog_layout);
             }
         });
 //        findViewById(R.id.title_bar_right_menu).setOnClickListener(new View.OnClickListener()
