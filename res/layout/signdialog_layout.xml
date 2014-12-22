@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    android:gravity="center"
-    android:layout_margin="30dp"
-    
-    >
-
-  
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Button" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="36dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:background="@color/white" >
+    <ImageView 
+        android:id="@+id/imageView1" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true" 
         android:background="@drawable/sign_dialog_icon" />
-
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" >
+		android:layout_below="@+id/imageView1" 
+        android:orientation="vertical"
+        android:padding="20dp" >
 
         <EditText
             android:id="@+id/sign_dialog_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blue"
-            android:textColor="@color/sign_textcolor"
-            android:textSize="18sp"
             android:drawableLeft="@drawable/sign_dialog_name"
-	        android:padding="10dp"
-             >
-
+            android:padding="10dp"
+            android:textColor="@color/sign_textcolor"
+            android:textSize="20sp" >
             <requestFocus />
         </EditText>
+       <EditText
+            android:id="@+id/sign_dialog_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:drawableLeft="@drawable/sign_dialog_password"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/sign_textcolor"
+            android:textSize="20sp" >
 
+        </EditText>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="@color/sign_textcolor"
+        android:text="TextView" />
 
 </RelativeLayout>

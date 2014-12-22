@@ -8,5 +8,5 @@
         android:toYDelta="100%p"
         android:fromYDelta="0"
         android:fillAfter="false"
-        android:duration="800"/>
+        android:duration="600"/>
 </set>
